@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeFlow - 할 일 관리</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">LifeFlow</h1>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="main__container">
+            <section class="task-controls">
+                <button class="button button--primary" id="addTaskBtn">할 일 추가</button>
+                <div class="filter-bar" id="filterBar"></div>
+                <div class="sort-bar" id="sortBar"></div>
+            </section>
+
+            <section class="task-list" id="taskList">
+                <!-- 할 일 목록이 여기에 동적으로 추가됩니다 -->
+            </section>
+        </div>
+    </main>
+
+    <!-- 할 일 추가/수정 모달 -->
+    <div class="modal" id="taskModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 class="modal__title" id="modalTitle">할 일 추가</h2>
+                <button class="modal__close" id="closeModal">&times;</button>
+            </div>
+            <form class="modal__form" id="taskForm">
+                <div class="form-group">
+                    <label for="taskTitle" class="form-label">제목 <span class="form-label--required">*</span></label>
+                    <input type="text" id="taskTitle" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription" class="form-label">설명</label>
+                    <textarea id="taskDescription" class="form-textarea" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="taskDueDate" class="form-label">마감일</label>
+                    <input type="datetime-local" id="taskDueDate" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="taskPriority" class="form-label">우선순위</label>
+                    <select id="taskPriority" class="form-select">
+                        <option value="low">낮음</option>
+                        <option value="medium" selected>보통</option>
+                        <option value="high">높음</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="taskCategory" class="form-label">카테고리</label>
+                    <input type="text" id="taskCategory" class="form-input" placeholder="예: 업무, 개인, 학습">
+                </div>
+                <div class="form-group">
+                    <label for="taskStatus" class="form-label">상태</label>
+                    <select id="taskStatus" class="form-select">
+                        <option value="pending">대기중</option>
+                        <option value="in_progress">진행중</option>
+                        <option value="completed">완료</option>
+                        <option value="cancelled">취소됨</option>
+                    </select>
+                </div>
+                <div class="modal__actions">
+                    <button type="button" class="button button--secondary" id="cancelBtn">취소</button>
+                    <button type="submit" class="button button--primary">저장</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+

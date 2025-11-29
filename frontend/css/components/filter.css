@@ -1,0 +1,50 @@
+/* Filter Bar Component */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.filter-bar__group {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.filter-bar__button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-background-white);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.filter-bar__button:hover {
+    background-color: var(--color-background-hover);
+}
+
+.filter-bar__button--active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
+}
+
+/* Sort Bar Component */
+.sort-bar {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-left: auto;
+}
+
+.sort-bar__select {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    background-color: var(--color-background-white);
+}
+
