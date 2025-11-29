@@ -1,7 +1,11 @@
 /**
  * 할 일 API 통신 모듈
  */
-const API_BASE_URL = '/api/v1';
+// 개발 환경: 절대 URL 사용 (백엔드가 별도 포트에서 실행)
+// 프로덕션 환경: 상대 URL 사용 (Nginx가 프록시)
+const API_BASE_URL = window.location.hostname === 'localhost' && window.location.port !== '80'
+    ? 'http://localhost:5000/api/v1'  // 개발 환경
+    : '/api/v1';  // 프로덕션 환경 (Docker)
 
 /**
  * API 요청 헬퍼 함수
@@ -10,8 +14,10 @@ const API_BASE_URL = '/api/v1';
  * @returns {Promise} 응답 데이터
  */
 async function apiRequest(endpoint, options = {}) {
+    const url = `${API_BASE_URL}${endpoint}`;
+    
     try {
-        const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        const response = await fetch(url, {
             headers: {
                 'Content-Type': 'application/json',
                 ...options.headers
@@ -20,12 +26,23 @@ async function apiRequest(endpoint, options = {}) {
         });
 
         if (!response.ok) {
-            const error = await response.json().catch(() => ({ error: 'Unknown error' }));
-            throw new Error(error.error || `HTTP error! status: ${response.status}`);
+            let errorMessage = `HTTP error! status: ${response.status}`;
+            try {
+                const errorData = await response.json();
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                // JSON 파싱 실패 시 기본 메시지 사용
+            }
+            throw new Error(errorMessage);
         }
 
         return await response.json();
     } catch (error) {
+        // 네트워크 오류인 경우 더 자세한 정보 제공
+        if (error.name === 'TypeError' && error.message.includes('fetch')) {
+            console.error(`API request failed: Cannot connect to ${url}`);
+            throw new Error(`백엔드 서버에 연결할 수 없습니다. 백엔드가 실행 중인지 확인하세요. (${url})`);
+        }
         console.error('API request failed:', error);
         throw error;
     }
