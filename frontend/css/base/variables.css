@@ -1,38 +1,46 @@
 /* CSS Variables */
 :root {
-    /* Colors */
-    --color-primary: #007bff;
-    --color-primary-hover: #0056b3;
-    --color-secondary: #6c757d;
-    --color-success: #28a745;
-    --color-danger: #dc3545;
-    --color-warning: #ffc107;
-    --color-info: #17a2b8;
+    /* Colors - Emerald Green Theme */
+    --color-primary: #10b981;
+    --color-primary-hover: #059669;
+    --color-primary-light: #34d399;
+    --color-primary-dark: #047857;
+    --color-secondary: #6b7280;
+    --color-success: #10b981;
+    --color-danger: #ef4444;
+    --color-warning: #f59e0b;
+    --color-info: #06b6d4;
     
     /* Priority Colors */
-    --priority-high: #dc3545;
-    --priority-medium: #ffc107;
-    --priority-low: #17a2b8;
+    --priority-high: #ef4444;
+    --priority-medium: #f59e0b;
+    --priority-low: #06b6d4;
     
     /* Text Colors */
-    --color-text: #212529;
-    --color-text-muted: #6c757d;
+    --color-text: #064e3b;
+    --color-text-muted: #6b7280;
     --color-text-light: #ffffff;
     
     /* Background Colors */
-    --color-background: #f8f9fa;
+    --color-background: #f0fdf4;
     --color-background-white: #ffffff;
-    --color-background-hover: #e9ecef;
+    --color-background-hover: #d1fae5;
+    --color-background-light: #ecfdf5;
     
     /* Border Colors */
-    --color-border: #dee2e6;
-    --color-border-light: #e9ecef;
+    --color-border: #a7f3d0;
+    --color-border-light: #d1fae5;
     
     /* Status Colors */
-    --status-pending: #6c757d;
-    --status-in-progress: #007bff;
-    --status-completed: #28a745;
-    --status-cancelled: #dc3545;
+    --status-pending: #6b7280;
+    --status-in-progress: #10b981;
+    --status-completed: #10b981;
+    --status-cancelled: #ef4444;
+    
+    /* Gradient Colors */
+    --gradient-primary: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --gradient-primary-light: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    --gradient-background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
     
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -57,11 +65,13 @@
     --border-radius-lg: 0.5rem;
     
     /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 1px 2px rgba(16, 185, 129, 0.1);
+    --shadow-md: 0 4px 6px rgba(16, 185, 129, 0.15);
+    --shadow-lg: 0 10px 15px rgba(16, 185, 129, 0.2);
+    --shadow-xl: 0 20px 25px rgba(16, 185, 129, 0.15);
     
     /* Transitions */
     --transition-base: all 0.2s ease-in-out;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

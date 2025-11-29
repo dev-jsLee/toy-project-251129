@@ -1,19 +1,38 @@
 /* Header Layout */
 .header {
-    background-color: var(--color-background-white);
-    border-bottom: 1px solid var(--color-border);
-    padding: var(--spacing-md) 0;
+    background: var(--gradient-primary);
+    border-bottom: none;
+    padding: var(--spacing-lg) 0;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
 }
 
 .header__container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
+    position: relative;
+    z-index: 1;
 }
 
 .header__title {
     font-size: var(--font-size-xxl);
-    color: var(--color-primary);
+    color: var(--color-text-light);
     margin: 0;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.02em;
 }
 

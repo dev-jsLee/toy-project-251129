@@ -2,6 +2,7 @@
 .main {
     padding: var(--spacing-xl) 0;
     min-height: calc(100vh - 80px);
+    background: var(--gradient-background);
 }
 
 .main__container {
@@ -16,11 +17,15 @@
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
     align-items: center;
+    padding: var(--spacing-lg);
+    background-color: var(--color-background-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
 }
 
 .task-list {
     display: grid;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
 }
 
 @media (min-width: 768px) {
