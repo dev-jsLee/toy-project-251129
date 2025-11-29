@@ -40,6 +40,7 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 python app.py
+
 ```
 
 백엔드는 `http://localhost:5000`에서 실행됩니다.

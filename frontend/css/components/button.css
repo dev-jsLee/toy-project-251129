@@ -20,30 +20,10 @@
     box-shadow: var(--shadow-sm);
 }
 
-.button--primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary-light);
-    transition: var(--transition-smooth);
-    z-index: 0;
-}
-
 .button--primary:hover {
+    background: var(--gradient-primary-light);
     box-shadow: var(--shadow-md);
     transform: translateY(-1px);
-}
-
-.button--primary:hover::before {
-    left: 0;
-}
-
-.button--primary > * {
-    position: relative;
-    z-index: 1;
 }
 
 .button--secondary {
